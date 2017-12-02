@@ -38,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
     @Override
-    public void onPause() {
-        super.onPause();
-        if(server != null) {
-            server.stop();
-        }
+    protected void onDestroy() {
+        super.onDestroy();
+        if(server !=null){
+        server.stop();}
     }
+
     public static String getIpAddress() {
         try {
             for (Enumeration en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
